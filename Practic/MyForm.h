@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cstdio>
 #include <ctime>
+#include <windows.h>
 #include "SecondForm.h"
 using namespace std;
 
@@ -13,6 +14,12 @@ namespace Practic {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+
+	static wstring CMD(L"CreateAndFill.exe");
+	static wstring CMD2(L"CreateForSort.exe");
+	static LPWSTR Fill = &CMD[0], Sort = &CMD2[0];
+	static STARTUPINFO sti = { 0 };
+	static PROCESS_INFORMATION pi = { 0 };
 
 	/// <summary>
 	/// Сводка для MyForm
@@ -181,6 +188,8 @@ namespace Practic {
 		}
 #pragma endregion
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		CreateProcess(NULL, Fill, NULL, NULL, TRUE, NULL, NULL, NULL, &sti, &pi);
+		CreateProcess(NULL, Sort, NULL, NULL, TRUE, NULL, NULL, NULL, &sti, &pi);
 		struct tm* date;
 		char Current_date[100];
 		const time_t timer = time(NULL);
@@ -189,17 +198,14 @@ namespace Practic {
 		System::String^ strCLR = gcnew System::String(Current_date);
 		label2->Text += strCLR;
 		srand(time(0));
-		FILE* f = fopen("numbers.txt", "w");
-		for (int i = 0; i < 100; i++)
-			fprintf(f, "%d ", rand() % 19 - 9);
-		fclose(f);
+		
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+
 		MyForm1^ form = gcnew MyForm1;
 		form->label1->Text = textBox1->Text;
 		form->label2->Text = textBox2->Text;
 		form->label3->Text = textBox3->Text;
-		form->FillData();
 		form->ShowDialog();
 
 	}

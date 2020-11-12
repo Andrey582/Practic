@@ -2,3 +2,11 @@ C:\Users\Андрей\controlwork\SPbCT_GanushkinAP\Practic-master\Practic\x64\D
 C:\Users\Андрей\controlwork\SPbCT_GanushkinAP\Practic-master\Practic\x64\Debug\Practic.MyForm.resources
 C:\Users\Андрей\controlwork\SPbCT_GanushkinAP\Practic-master\Practic\x64\Debug\Practic.vcxproj.GenerateResource.cache
 C:\Users\Андрей\controlwork\SPbCT_GanushkinAP\Practic-master\Practic\x64\Debug\Practic.SecondForm.resources
+C:\Users\Андрей\Desktop\Practic-main\Practic\x64\Debug\Practic.vcxprojAssemblyReference.cache
+C:\Users\Андрей\Desktop\Practic-main\Practic\x64\Debug\Practic.MyForm.resources
+C:\Users\Андрей\Desktop\Practic-main\Practic\x64\Debug\Practic.SecondForm.resources
+C:\Users\Андрей\Desktop\Practic-main\Practic\x64\Debug\Practic.vcxproj.GenerateResource.cache
+C:\Users\Андрей\Pracic\Practic\Practic\x64\Debug\Practic.vcxprojAssemblyReference.cache
+C:\Users\Андрей\Pracic\Practic\Practic\x64\Debug\Practic.MyForm.resources
+C:\Users\Андрей\Pracic\Practic\Practic\x64\Debug\Practic.SecondForm.resources
+C:\Users\Андрей\Pracic\Practic\Practic\x64\Debug\Practic.vcxproj.GenerateResource.cache

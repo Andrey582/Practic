@@ -1,5 +1,5 @@
 #pragma once
-#include "Vector.h"
+#include "Vector/vector.h"
 #include <thread>
 #include <iostream>
 #include <vector>
@@ -174,9 +174,9 @@ namespace Practic {
 			// 
 			this->button1->Location = System::Drawing::Point(473, 269);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(111, 23);
+			this->button1->Size = System::Drawing::Size(132, 23);
 			this->button1->TabIndex = 7;
-			this->button1->Text = L"Отсортировать";
+			this->button1->Text = L"Вывести массивы";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &MyForm1::button1_Click);
 			// 
@@ -209,7 +209,7 @@ namespace Practic {
 			int count = 0, i = 0, value, l = 0;
 			char* buffer = new char[300];
 			char* buffer2 = new char[3];
-			FILE* f = fopen("numbers.txt", "r");
+			FILE* f = fopen("Numbers.txt", "r");
 			fgets(buffer, 300, f);
 			dataGridView1->ColumnCount = 100;
 			rewind(f);
@@ -242,7 +242,7 @@ namespace Practic {
 
 		void SortInFile()
 		{
-			FILE* f = fopen("numbers.txt", "w");
+			FILE* f = fopen("SortNumbers.txt", "w");
 			dataGridView2->ColumnCount = 100;
 			for (int i = 0; i < 100; i++)
 			{
@@ -258,7 +258,7 @@ namespace Practic {
 #pragma endregion
 
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		
+		FillData();
 		thread th1(SortData, 0);
 		thread th2(SortData, 10);
 		thread th3(SortData, 20);
