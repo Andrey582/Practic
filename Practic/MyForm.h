@@ -188,15 +188,15 @@ namespace Practic {
 		}
 #pragma endregion
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		CreateProcess(NULL, Fill, NULL, NULL, TRUE, NULL, NULL, NULL, &sti, &pi);
-		CreateProcess(NULL, Sort, NULL, NULL, TRUE, NULL, NULL, NULL, &sti2, &pi);
+		CreateProcess(NULL, Fill, NULL, NULL, TRUE, NULL, NULL, NULL, &sti, &pi);		//Создаем процесс для создания файла и записи в него 100 цифр
+		CreateProcess(NULL, Sort, NULL, NULL, TRUE, NULL, NULL, NULL, &sti2, &pi);		//Создаем процесс для создания файла для записи в него сортированного массива
 		struct tm* date;
 		char Current_date[100];
 		const time_t timer = time(NULL);
 		date = localtime(&timer);
 		strftime(Current_date, 100, "%d.%m.%Y %H:%M:%S", date);
 		System::String^ strCLR = gcnew System::String(Current_date);
-		label2->Text += strCLR;
+		label2->Text += strCLR;			//Выводим время и дату запуска программы на экран
 		srand(time(0));
 		TerminateProcess(&sti, INFINITE);
 		TerminateProcess(&sti2, INFINITE);
@@ -204,15 +204,15 @@ namespace Practic {
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		MyForm1^ form = gcnew MyForm1;
+		MyForm1^ form = gcnew MyForm1;		//Создаем новую форму
 		form->label1->Text = textBox1->Text;
 		form->label2->Text = textBox2->Text;
 		form->label3->Text = textBox3->Text;
-		form->ShowDialog();
+		form->ShowDialog();			//Выводим новую форму на экран
 
 	}
 private: System::Void textBox1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-	if (Char::IsPunctuation(e->KeyChar) || Char::IsDigit(e->KeyChar) || Char::IsSymbol(e->KeyChar))
+	if (Char::IsPunctuation(e->KeyChar) || Char::IsDigit(e->KeyChar) || Char::IsSymbol(e->KeyChar))			//Запрещаем ввод любых символов, кроме букв
 		e->Handled = true;
 	if (Char::IsLetter(e->KeyChar))
 		return;
