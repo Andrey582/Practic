@@ -17,7 +17,7 @@ namespace Practic {
 	using namespace System::Drawing;
 
 	static int array[100];
-	static void SortData(int n)
+	static void SortData(int n)			//Сортировка массива 
 	{
 		int max, maxi = 0, j = n, temp, count;
 		for (n; n < 10 + j; n++)
@@ -203,7 +203,7 @@ namespace Practic {
 		}
 
 	public:
-		void FillData()
+		void FillData()			//Заполнение DataGridView1 цифрами из файла
 		{
 			vector<int> v;
 			int count = 0, i = 0, value, l = 0;
@@ -240,7 +240,7 @@ namespace Practic {
 		}
 
 
-		void SortInFile()
+		void SortInFile()		//Заполниение файла и вывод в DataGridView2 отсортированного массива
 		{
 			FILE* f = fopen("SortNumbers.txt", "w");
 			dataGridView2->ColumnCount = 100;
@@ -259,12 +259,12 @@ namespace Practic {
 
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		FillData();
-		thread th1(SortData, 0);
+		thread th1(SortData, 0);			//Создание потоков
 		thread th2(SortData, 10);
 		thread th3(SortData, 20);
 		thread th4(SortData, 30);
 		thread th5(SortData, 40);
-		th1.join();
+		th1.join();							//Синхронизация потоков
 		th2.join();
 		th3.join();
 		th4.join();
