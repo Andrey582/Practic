@@ -18,7 +18,7 @@ namespace Practic {
 	static wstring CMD(L"CreateAndFill.exe");
 	static wstring CMD2(L"CreateForSort.exe");
 	static LPWSTR Fill = &CMD[0], Sort = &CMD2[0];
-	static STARTUPINFO sti = { 0 };
+	static STARTUPINFO sti = { 0 }, sti2 = { 0 };
 	static PROCESS_INFORMATION pi = { 0 };
 
 	/// <summary>
@@ -189,7 +189,7 @@ namespace Practic {
 #pragma endregion
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		CreateProcess(NULL, Fill, NULL, NULL, TRUE, NULL, NULL, NULL, &sti, &pi);
-		CreateProcess(NULL, Sort, NULL, NULL, TRUE, NULL, NULL, NULL, &sti, &pi);
+		CreateProcess(NULL, Sort, NULL, NULL, TRUE, NULL, NULL, NULL, &sti2, &pi);
 		struct tm* date;
 		char Current_date[100];
 		const time_t timer = time(NULL);
@@ -198,6 +198,8 @@ namespace Practic {
 		System::String^ strCLR = gcnew System::String(Current_date);
 		label2->Text += strCLR;
 		srand(time(0));
+		TerminateProcess(&sti, INFINITE);
+		TerminateProcess(&sti2, INFINITE);
 		
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
